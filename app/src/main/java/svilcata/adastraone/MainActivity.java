@@ -11,15 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +24,7 @@ import svilcata.adastraone.Models.Dog;
 import svilcata.adastraone.retrofit.ApiInterface;
 import svilcata.adastraone.retrofit.ApiUtils;
 import svilcata.adastraone.retrofit.Breed_ListHMResponse;
+import svilcata.adastraone.retrofit.Breed_RandomImgResponse;
 
 public class MainActivity extends AppCompatActivity {
     private List<Dog> dogList = new ArrayList<>();
@@ -92,26 +84,22 @@ public class MainActivity extends AppCompatActivity {
     private void updateDogImgURL(final List<Dog> dogList) {
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
+        ApiInterface apiInterface = ApiUtils.getAPIService();
         for (int i = 0; i < dogList.size(); i++) {
-            RequestQueue queue = Volley.newRequestQueue(this);
+            Call<Breed_RandomImgResponse> call = apiInterface.getBreedRandomImageResponse(dogList.get(i).getBreed());
             final int finalI1 = i;
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://dog.ceo/api/breed/" + dogList.get(i).getBreed() + "/images/random", null, new com.android.volley.Response.Listener<JSONObject>() {
+            call.enqueue(new Callback<Breed_RandomImgResponse>() {
                 @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        dogList.get(finalI1).setmRandomImageURL(response.get("message").toString());
-                        dogsAdapter.notifyDataSetChanged();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                public void onResponse(Call<Breed_RandomImgResponse> call, Response<Breed_RandomImgResponse> response) {
+                    dogList.get(finalI1).setmRandomImageURL(response.body().getMessage());
+                    dogsAdapter.notifyDataSetChanged();
                 }
-            }, new com.android.volley.Response.ErrorListener() {
+
                 @Override
-                public void onErrorResponse(VolleyError error) {
+                public void onFailure(Call<Breed_RandomImgResponse> call, Throwable t) {
 
                 }
             });
-            queue.add(jsonObjectRequest);
         }
     }
 }

@@ -13,4 +13,8 @@ public interface ApiInterface {
     @GET("api/breed/{breed_name}/images")
     Call<Breed_ListResponse> getAllBreedImagesResponse(@Path("breed_name") String breedName);
 
+    //Get random breed image
+    @GET("/api/breed/{breed_name}/images/random")
+    Call<Breed_RandomImgResponse> getBreedRandomImageResponse(@Path("breed_name") String breedName);
+
 }

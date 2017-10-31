@@ -36,7 +36,7 @@ public class BreedGalleryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getIntent().getStringExtra("breedname"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Click on any photo to enlarge", Snackbar.LENGTH_INDEFINITE).setAction("Hide", new View.OnClickListener() {
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), R.string.hint_enlargePhoto, Snackbar.LENGTH_INDEFINITE).setAction("Hide", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
