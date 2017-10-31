@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="svilcata.adastraone.MainActivity">
 
+
     <Button
         android:id="@+id/retrieveList_button"
         android:layout_width="wrap_content"
@@ -16,7 +17,21 @@
         android:fontFamily="casual"
         android:text="@string/get_started"
         android:textAllCaps="false"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/camera_pic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/retrieveList_button"
+        android:layout_alignLeft="@id/retrieveList_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/retrieveList_button"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/camera_pic"
+        android:layout_alignStart="@id/retrieveList_button"
+        android:layout_alignEnd="@+id/retrieveList_button" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_list"
@@ -36,5 +51,4 @@
         android:layout_centerVertical="true"
         android:indeterminate="true"
         android:visibility="invisible" />
-
 </RelativeLayout>

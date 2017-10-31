@@ -48,14 +48,15 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.indeterminateBar)
     ProgressBar progressBar;
     @BindView(R.id.retrieveList_button)
-    Button startButton;
+    Button btn_start;
+    @BindView(R.id.camera_pic)
+    ImageView imgView_cameraIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        getSupportActionBar().setTitle("Dogs Gallery");
 
         dogsAdapter = new DogsAdapter(dogList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -64,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(dogsAdapter);
 
 
-        startButton.setOnClickListener(new View.OnClickListener() {
+        btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startButton.setVisibility(View.INVISIBLE);
+                btn_start.setVisibility(View.INVISIBLE);
+                imgView_cameraIcon.setVisibility(View.INVISIBLE);
                 progressBar.setVisibility(View.VISIBLE);
                 prepareDog_Adapter();
             }
