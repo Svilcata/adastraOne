@@ -11,7 +11,7 @@
     </style>
 
     <style name="MyButton" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:background">@drawable/btn_background</item>
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
-
 </resources>

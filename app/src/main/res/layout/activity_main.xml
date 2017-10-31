@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     tools:context="svilcata.adastraone.MainActivity">
 
-
     <Button
         android:id="@+id/retrieveList_button"
-        style="@style/Base.Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="casual"
         android:text="@string/get_started"
+        android:theme="@style/MyButton"
+        style="@style/MyButton"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:theme="@style/MyButton" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/camera_pic"
@@ -41,6 +40,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="5dp"
+        android:visibility="invisible"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/dog_list_row" />
 

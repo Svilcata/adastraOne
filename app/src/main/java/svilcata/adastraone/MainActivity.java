@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void update_DogImgURL(final List<Dog> dogList) {
         progressBar.setVisibility(View.INVISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
         for (int i = 0; i < dogList.size(); i++) {
             RequestQueue queue = Volley.newRequestQueue(this);
             final int finalI1 = i;
