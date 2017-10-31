@@ -11,6 +11,7 @@
         android:clickable="true"
         android:columnWidth="100dp"
         android:drawSelectorOnTop="true"
+        android:horizontalSpacing="5dp"
         android:focusable="true"
         android:gravity="center"
         android:numColumns="auto_fit"
