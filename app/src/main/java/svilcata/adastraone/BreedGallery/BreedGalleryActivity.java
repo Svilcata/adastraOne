@@ -46,12 +46,12 @@ public class BreedGalleryActivity extends AppCompatActivity {
 
         gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, imgUrls_List);
         gridView.setAdapter(gridAdapter);
-        prepareDog_Adapter(getIntent().getStringExtra("breedname"));
+        prepareDogAdapter(getIntent().getStringExtra("breedname"));
     }
 
-    private void prepareDog_Adapter(String breedName) {
+    private void prepareDogAdapter(String breedName) {
         final ApiInterface apiInterface = ApiUtils.getAPIService();
-        Call<Breed_ListResponse> call = apiInterface.getAllBreedImages_Response(breedName);
+        Call<Breed_ListResponse> call = apiInterface.getAllBreedImagesResponse(breedName);
         call.enqueue(new Callback<Breed_ListResponse>() {
             @Override
             public void onResponse(@NonNull Call<Breed_ListResponse> call, @NonNull Response<Breed_ListResponse> response) {

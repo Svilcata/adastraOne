@@ -7,10 +7,10 @@ import retrofit2.http.Path;
 public interface ApiInterface {
     //Get all breeds
     @GET("api/breeds/list/all")
-    Call<Breed_ListHMResponse> getAllBreeds_ResponseHM();
+    Call<Breed_ListHMResponse> getAllBreedsResponseHM();
 
     //Get all images from specific breed
     @GET("api/breed/{breed_name}/images")
-    Call<Breed_ListResponse> getAllBreedImages_Response(@Path("breed_name") String breedName);
+    Call<Breed_ListResponse> getAllBreedImagesResponse(@Path("breed_name") String breedName);
 
 }
