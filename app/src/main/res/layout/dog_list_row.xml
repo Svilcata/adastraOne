@@ -29,14 +29,15 @@
 
         <ImageView
             android:id="@+id/image_cardviewListItem"
-            android:layout_width="70dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:paddingEnd="5dp"
             android:paddingRight="5dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 

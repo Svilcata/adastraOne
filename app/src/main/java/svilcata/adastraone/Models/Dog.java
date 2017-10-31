@@ -2,19 +2,15 @@ package svilcata.adastraone.Models;
 
 import java.util.List;
 
-/**
- * Created by Svilcata on 30-Oct-17.
- */
-
 public class Dog {
     private String mBreed;
     private List<String> mSubBreed;
-    private String mRandomImage;
+    private String mRandomImageURL;
 
     public Dog(String breed, List<String> subBreed, String randomImage) {
         this.mBreed = breed;
         this.mSubBreed = subBreed;
-        this.mRandomImage = randomImage;
+        this.mRandomImageURL = randomImage;
     }
 
     public String getBreed() {
@@ -33,11 +29,11 @@ public class Dog {
         this.mSubBreed = subBreed;
     }
 
-    public String getmRandomImage() {
-        return mRandomImage;
+    public String getmRandomImageURL() {
+        return mRandomImageURL;
     }
 
-    public void setmRandomImage(String mRandomImage) {
-        this.mRandomImage = mRandomImage;
+    public void setmRandomImageURL(String mRandomImageURL) {
+        this.mRandomImageURL = mRandomImageURL;
     }
 }

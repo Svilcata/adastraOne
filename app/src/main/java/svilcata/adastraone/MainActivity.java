@@ -83,9 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<Breed_ListHMResponse> call, @NonNull Response<Breed_ListHMResponse> response) {
                 for (Map.Entry<String, List<String>> entry : response.body().getMessage().entrySet()) {
-                    String name = entry.getKey();
-                    name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-                    dogList.add(new Dog(name, entry.getValue(), null));
+                    dogList.add(new Dog(entry.getKey(), entry.getValue(), null));
                 }
                 update_DogImgURL(dogList);
             }
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        dogList.get(finalI1).setmRandomImage(response.get("message").toString());
+                        dogList.get(finalI1).setmRandomImageURL(response.get("message").toString());
                         dogsAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -140,8 +138,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
-            holder.breedName.setText(dogList.get(position).getBreed());
-            Picasso.with(getBaseContext()).load(dogList.get(position).getmRandomImage()).into(holder.breedPhoto);
+            String name = dogList.get(position).getBreed();
+            name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+            holder.breedName.setText(name);
+            Picasso.with(getBaseContext()).load(dogList.get(position).getmRandomImageURL()).into(holder.breedPhoto);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

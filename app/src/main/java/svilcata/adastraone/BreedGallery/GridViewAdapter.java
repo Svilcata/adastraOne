@@ -17,10 +17,6 @@ import java.util.List;
 
 import svilcata.adastraone.R;
 
-/**
- * Created by Svilcata on 30-Oct-17.
- */
-
 public class GridViewAdapter extends ArrayAdapter {
     private Context context;
     private int layoutResourceId;
