@@ -58,7 +58,7 @@ public class GridViewAdapter extends ArrayAdapter {
     }
 
     private void showImage(String imageUri) {
-        final AlertDialog.Builder imageDialog = new AlertDialog.Builder(context);
+        final AlertDialog.Builder imageDialog = new AlertDialog.Builder(context,R.style.CustomDialog);
         LayoutInflater factory = LayoutInflater.from(context);
         View view = factory.inflate(R.layout.image_dialogfragment, null);
         ImageView imageView = view.findViewById(R.id.imageView_enlarged);
